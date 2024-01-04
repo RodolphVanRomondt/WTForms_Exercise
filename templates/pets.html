@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Pets {% endblock %}
+{% block heading %} Pets {% endblock %}
+{% block body %}
+
+{% for pet in pets %}
+    <figure>
+        <img src="{{ pet.photo_url }}" class="img-thumbnail">
+        <figcaption>
+            <a href="/{{ pet.id }}" class="link-offset-2 link-underline link-underline-opacity-0">{{ pet.name }}</a>
+            {% if pet.available %}
+                <b>is available!</b>
+            {% else %}
+                is not available!
+            {% endif %}
+        </figcaption>
+    </figure>
+{% endfor %}
+
+<a href="/add" class="btn btn-primary btn-lg">Add Pet</a>
+
+{% endblock %}

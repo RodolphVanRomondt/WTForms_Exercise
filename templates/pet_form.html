@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} New Pet {% endblock %}
+{% block heading %} Add Pet {% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <form method="POST">
+            {{ pet.hidden_tag() }}
+
+            {% for ele in pet if ele.widget.input_type != 'hidden' %}
+                <p>
+                    {{ ele.label }}
+                    {{ ele }}
+                </p>
+            {% endfor %}
+            <button class="btn btn-success btn-sm">Submit</button>
+            <a href="/" class="btn btn-danger btn-sm">Go Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
